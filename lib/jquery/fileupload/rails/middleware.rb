@@ -29,7 +29,8 @@ module JQuery
         end
 
         def iframe_transport?
-          @request.params['X-Requested-With'] == 'IFrame'
+          !@request.params['remotipart_submitted'] &&
+            @request.params['X-Requested-With'] == 'IFrame'
         end
 
         def html_document_left
